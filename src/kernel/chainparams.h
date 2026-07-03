@@ -16,6 +16,7 @@
 
 #include <cstddef>
 #include <cstdint>
+#include <limits>
 #include <memory>
 #include <optional>
 #include <string>
@@ -142,6 +143,9 @@ public:
         int64_t start_time;
         int64_t timeout;
         int min_activation_height;
+        int max_activation_height{std::numeric_limits<int>::max()};
+        int active_duration{std::numeric_limits<int>::max()};
+        int threshold{108};  // regtest default: 75% of 144
     };
 
     /**
